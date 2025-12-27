@@ -1,11 +1,12 @@
--- Create models table
-CREATE TABLE models (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+-- V9: Create models table (PostgreSQL)
+
+CREATE TABLE IF NOT EXISTS models (
+    id BIGSERIAL PRIMARY KEY,
     brand VARCHAR(50) NOT NULL,
     model_name VARCHAR(100) NOT NULL,
     category VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE KEY unique_brand_model (brand, model_name)
+    CONSTRAINT unique_brand_model UNIQUE (brand, model_name)
 );
 
 -- Insert existing models
@@ -41,8 +42,9 @@ INSERT INTO models (brand, model_name, category) VALUES
 ('Nokia', 'Nokia 7.2', 'Display'),
 ('Nokia', 'Nokia 3.4', 'Display'),
 ('Nokia', 'Nokia 5.4', 'Display'),
-('Nokia', 'Nokia 8.3', 'Display');
+('Nokia', 'Nokia 8.3', 'Display')
+ON CONFLICT DO NOTHING;
 
 -- Add indexes
-CREATE INDEX idx_brand ON models(brand);
-CREATE INDEX idx_category ON models(category);
+CREATE INDEX IF NOT EXISTS idx_brand ON models(brand);
+CREATE INDEX IF NOT EXISTS idx_category ON models(category);
