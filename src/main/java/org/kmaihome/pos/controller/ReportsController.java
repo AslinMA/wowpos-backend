@@ -11,8 +11,9 @@ import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/reports")
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "false")
+@CrossOrigin(origins = "*", allowCredentials = "false")
 @RequiredArgsConstructor
+
 public class ReportsController {
 
     private final ReportService reportService;

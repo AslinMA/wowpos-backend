@@ -3,6 +3,7 @@ package org.kmaihome.pos.controller;
 import lombok.RequiredArgsConstructor;
 import org.kmaihome.pos.models.DaySales;
 import org.kmaihome.pos.service.AdminMetricsService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/admin/metrics")
+@CrossOrigin(origins = "*", allowCredentials = "false")
 @RequiredArgsConstructor
 public class AdminMetricsController {
 
