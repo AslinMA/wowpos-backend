@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/repair")
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "false")
+@CrossOrigin(origins = "*", allowCredentials = "false")
 public class RepairController {
 
     @Autowired
