@@ -16,7 +16,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/damage")
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "false")
+@CrossOrigin(origins = "*", allowCredentials = "false")
+
 public class DamageController {
 
     @Autowired
