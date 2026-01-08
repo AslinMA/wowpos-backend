@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Damage {
     private Integer damageId;
+    private String damageDate;
     private Integer productId;
     private String category;
     private String brand;
@@ -16,5 +17,6 @@ public class Damage {
     private Integer quantity;
     private String damageType;
     private String damageReason;
-    private Double lossAmount;
+    private Double buyPrice;          // ✅ Use Double
+    private Double lossAmount;        // ✅ Use Double
 }
