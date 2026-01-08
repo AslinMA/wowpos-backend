@@ -39,10 +39,13 @@ public class DamageEntity {
     private Integer quantity;
 
     @Column(name = "damage_type")
-    private String damageType;  // "Supplier Issue" or "My Fault"
+    private String damageType;
 
     @Column(name = "damage_reason", columnDefinition = "TEXT")
     private String damageReason;
+
+    @Column(name = "buy_price")  // ← ADD THIS!
+    private Double buyPrice;     // ← ADD THIS!
 
     @Column(name = "loss_amount")
     private Double lossAmount;

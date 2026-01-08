@@ -51,6 +51,7 @@ public class DamageServiceImpl implements DamageService {
                 .quantity(damage.getQuantity())
                 .damageType(damage.getDamageType())
                 .damageReason(damage.getDamageReason())
+                .buyPrice(damage.getBuyPrice())          // ← ADD THIS LINE!
                 .lossAmount(damage.getLossAmount())
                 .build();
 
