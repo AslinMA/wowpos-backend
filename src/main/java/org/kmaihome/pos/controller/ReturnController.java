@@ -16,7 +16,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/return")
-@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "false")
+@CrossOrigin(origins = "*", allowCredentials = "false")
 public class ReturnController {
 
     @Autowired
