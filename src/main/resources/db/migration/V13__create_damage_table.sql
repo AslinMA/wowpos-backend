@@ -1,6 +1,6 @@
--- V13: Create damage tracking table
+-- V13: Create damage tracking table safely
 
-CREATE TABLE damage (
+CREATE TABLE IF NOT EXISTS damage (
     damage_id SERIAL PRIMARY KEY,
     damage_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     product_id INTEGER NOT NULL,
@@ -18,10 +18,8 @@ CREATE TABLE damage (
         REFERENCES product(id) ON DELETE CASCADE
 );
 
--- Create indexes
-CREATE INDEX idx_damage_date ON damage(damage_date DESC);
-CREATE INDEX idx_damage_product_id ON damage(product_id);
-CREATE INDEX idx_damage_type ON damage(damage_type);
+CREATE INDEX IF NOT EXISTS idx_damage_date ON damage(damage_date DESC);
+CREATE INDEX IF NOT EXISTS idx_damage_product_id ON damage(product_id);
+CREATE INDEX IF NOT EXISTS idx_damage_type ON damage(damage_type);
 
--- Add comments
 COMMENT ON TABLE damage IS 'Records of damaged inventory with loss tracking';
