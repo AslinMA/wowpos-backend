@@ -1,5 +1,8 @@
--- Add date column to product table
-ALTER TABLE product ADD COLUMN date DATE;
+-- V10: Add date column to product table safely
 
--- Optional: Set default value for existing records
-UPDATE product SET date = CURRENT_DATE WHERE date IS NULL;
+ALTER TABLE product
+ADD COLUMN IF NOT EXISTS date DATE;
+
+UPDATE product
+SET date = CURRENT_DATE
+WHERE date IS NULL;
